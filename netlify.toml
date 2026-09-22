@@ -1,0 +1,11 @@
+# Nova Studio — configuration Netlify.
+#
+# Seuls les fichiers du site sont publiés (liste ci-dessous) : les documents de travail de ce dossier
+# (plan, PDF, anciens logos), le dossier netlify/ et package.json ne sont JAMAIS mis en ligne.
+[build]
+  command = "rm -rf dist && mkdir dist && cp -R index.html 404.html cgu.html politique-de-confidentialite.html robots.txt sitemap.xml favicon.ico css js assets concepts projet dist/"
+  publish = "dist"
+
+# Fonction qui envoie les e-mails des questionnaires (voir netlify/functions/submission-created.js)
+[functions]
+  directory = "netlify/functions"

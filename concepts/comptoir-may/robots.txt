@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Ajouter au déploiement (domaine requis) :
+# Sitemap: https://www.VOTRE-DOMAINE.fr/sitemap.xml

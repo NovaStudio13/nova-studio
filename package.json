@@ -1,0 +1,8 @@
+{
+  "name": "nova-studio-site",
+  "private": true,
+  "description": "Site Nova Studio — site statique + une fonction Netlify (e-mails des questionnaires).",
+  "dependencies": {
+    "nodemailer": "^6.9.16"
+  }
+}

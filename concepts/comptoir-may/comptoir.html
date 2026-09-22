@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comptoir · Mây</title>
+<meta name="robots" content="noindex, nofollow">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="pass-body">
+<!-- Écran réservé au restaurant. En production : à protéger par un accès (mot de passe / lien secret) et à brancher sur le serveur de commandes. -->
+<header class="pass-top">
+  <h1><span class="borne" aria-hidden="true">N7</span> Comptoir · Mây</h1>
+  <button id="sound" type="button" aria-pressed="false">Activer le son</button>
+  <button id="simulate" type="button">Simuler une commande</button>
+  <button id="wipe" type="button">Tout effacer</button>
+  <p class="pass-demo">Mode démonstration : cet écran reçoit les commandes passées sur le site, dans ce même navigateur. Ouvrez <a href="index.html" target="_blank" rel="noopener">le site</a> dans un autre onglet et passez une commande.</p>
+</header>
+
+<main class="pass-board" aria-live="polite">
+  <section class="pass-col" aria-labelledby="h-new"><h2 id="h-new">Nouvelles <span id="n-new">0</span></h2><div class="pass-list" id="col-new"></div></section>
+  <section class="pass-col" aria-labelledby="h-prep"><h2 id="h-prep">En préparation <span id="n-preparing">0</span></h2><div class="pass-list" id="col-preparing"></div></section>
+  <section class="pass-col" aria-labelledby="h-ready"><h2 id="h-ready">Prêtes <span id="n-ready">0</span></h2><div class="pass-list" id="col-ready"></div></section>
+</main>
+<p class="pass-foot" id="foot"></p>
+
+<script src="orders.js"></script>
+<script src="comptoir.js"></script>
+</body>
+</html>

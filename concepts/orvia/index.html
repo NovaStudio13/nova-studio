@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Orvia — Concept de site immersif (marque imaginaire)</title>
+<meta name="description" content="Concept d’expérience web immersive pour Orvia, une marque de boisson imaginaire : canettes en 3D, défilement cinématique, interactions au curseur. Projet de démonstration de Nova Studio.">
+<meta name="theme-color" content="#050506">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2317181d'/%3E%3Ccircle cx='32' cy='32' r='17' fill='none' stroke='%23ffb547' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body class="is-loading">
+
+<!-- ─────────────── Loader ─────────────── -->
+<div class="loader" aria-hidden="true">
+  <div class="loader__logo">
+    <img src="assets/logo/orvia-logo.svg" alt="" class="loader__logo-ghost">
+    <div class="loader__logo-fill"><img src="assets/logo/orvia-logo.svg" alt=""></div>
+  </div>
+  <div class="loader__count"><span data-loader-count>0</span> %</div>
+</div>
+
+<!-- ─────────────── Curseur ─────────────── -->
+<div class="cursor" aria-hidden="true">
+  <div class="cursor__ring"><span class="cursor__label"></span></div>
+  <div class="cursor__dot"></div>
+</div>
+<canvas class="fx" aria-hidden="true"></canvas>
+<canvas class="splat" aria-hidden="true"></canvas>
+
+<!-- ─────────────── WebGL ─────────────── -->
+<canvas id="gl" aria-label="Canettes Orvia en 3D" role="img"></canvas>
+<div class="frame" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+<div class="progress" aria-hidden="true"><span></span></div>
+
+<!-- ─────────────── Header ─────────────── -->
+<header class="header">
+  <button class="sound" type="button" aria-pressed="false" data-cursor="hover" aria-label="Activer ou couper le son">
+    <span class="sound__label" data-sound-label>Off</span>
+    <span class="sound__bars"><i></i><i></i><i></i></span>
+  </button>
+  <a class="header__logo" href="#hero" data-scroll-to="#hero" data-cursor="hover" aria-label="Orvia — accueil">
+    <img src="assets/logo/orvia-logo.svg" alt="Orvia">
+  </a>
+  <div class="header__right">
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-cursor="hover">
+      <span class="menu-btn__icon"><i></i><i></i><i></i><i></i></span><span data-menu-label>Menu</span>
+    </button>
+    <a class="pill" href="#join" data-scroll-to="#join" data-magnetic data-cursor="hover">Contact</a>
+  </div>
+</header>
+
+<!-- ─────────────── Menu plein écran ─────────────── -->
+<nav class="menu" id="menu" aria-label="Navigation principale" aria-hidden="true">
+  <ul>
+    <li><a href="#hero" data-scroll-to="#hero" data-cursor="hover"><span>01</span><em>La gamme</em></a></li>
+    <li><a href="#stage" data-scroll-to="#stage" data-cursor="hover"><span>02</span><em>Dedans</em></a></li>
+    <li><a href="#manifesto" data-scroll-to="#manifesto" data-cursor="hover"><span>03</span><em>Manifeste</em></a></li>
+    <li><a href="#faq" data-scroll-to="#faq" data-cursor="hover"><span>04</span><em>Questions</em></a></li>
+    <li><a href="#finale" data-scroll-to="#finale" data-cursor="hover"><span>05</span><em>Ouvre-la</em></a></li>
+  </ul>
+  <p class="menu__foot">Concept de site — marque imaginaire, projet de démonstration</p>
+</nav>
+
+<main id="top">
+
+  <!-- ═══════════════ HERO : le carrousel ═══════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero__ui">
+      <p class="hero__count mono"><b data-hero-index>01</b> / 11 <span>— La gamme</span></p>
+      <p class="hero__meta mono">250 ml · à boire bien frais</p>
+
+      <button class="arrow arrow--prev" type="button" aria-label="Saveur précédente" data-cursor="hover" data-magnetic><svg viewBox="0 0 24 24"><path d="M14.5 5.5 8 12l6.5 6.5"/></svg></button>
+      <button class="arrow arrow--next" type="button" aria-label="Saveur suivante" data-cursor="hover" data-magnetic><svg viewBox="0 0 24 24"><path d="m9.5 5.5 6.5 6.5-6.5 6.5"/></svg></button>
+
+      <div class="hero__bottom">
+        <h1 class="hero__name" aria-live="polite">
+          <span class="hero__name-a" data-hero-a>Orvia</span>
+          <span class="hero__name-b" data-hero-b>Original</span>
+        </h1>
+        <p class="hero__tag mono" data-hero-tag></p>
+        <p class="hero__desc" data-hero-desc></p>
+        <div class="slider" data-cursor="drag" role="slider" aria-label="Choisir une saveur" aria-valuemin="1" aria-valuemax="11" aria-valuenow="1" tabindex="0">
+          <div class="slider__track"><i class="slider__fill"></i>
+            <span class="slider__thumb"></span>
+          </div>
+        </div>
+        <p class="hero__scroll mono"><span>Fais défiler pour découvrir</span><i></i></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ STAGE : recette + gamme (épinglé) ═══════════════ -->
+  <section class="stage" id="stage">
+    <div class="stage__pin">
+
+      <!-- Chapitres -->
+      <div class="f-ui" data-f-ui>
+        <div class="chapter">
+          <p class="chapter__strike"><span class="chapter__dot"></span><span data-ch-strike>Le format</span></p>
+          <h2 class="chapter__title" data-ch-title>Une canette,<br>une main</h2>
+          <p class="chapter__text" data-ch-text></p>
+          <div class="chapter__big"><b data-ch-big>250</b><span data-ch-unit>ml par canette</span></div>
+        </div>
+
+        <ol class="chapters-nav" aria-label="Chapitres">
+          <li><button type="button" data-chapter="0" aria-label="Format" data-cursor="hover">
+            <svg viewBox="0 0 32 32"><rect x="9" y="6" width="14" height="21" rx="3"/><path d="M9 11h14M9 22h14"/></svg></button></li>
+          <li><button type="button" data-chapter="1" aria-label="Fraîcheur" data-cursor="hover">
+            <svg viewBox="0 0 32 32"><path d="M16 4v24M6 10l20 12M26 10 6 22"/><path d="m13 5.500 3 2.500 3-2.500M13 26.500l3-2.500 3 2.500"/></svg></button></li>
+          <li><button type="button" data-chapter="2" aria-label="Saveurs" data-cursor="hover">
+            <svg viewBox="0 0 32 32"><path d="M16 4.500c4.500 5.500 8 9.500 8 14a8 8 0 0 1-16 0c0-4.500 3.500-8.500 8-14z"/></svg></button></li>
+          <li><button type="button" data-chapter="3" aria-label="Anneau" data-cursor="hover">
+            <svg viewBox="0 0 32 32"><circle cx="16" cy="16" r="9"/><circle cx="16" cy="16" r="4.500"/></svg></button></li>
+        </ol>
+
+        <div class="f-foot mono">
+          <span><b data-ch-index>01</b> / 04</span>
+          <span class="f-foot__bar"><i data-ch-bar></i></span>
+          <span class="f-foot__hint"><svg viewBox="0 0 24 24"><path d="M8 13V6.500a1.500 1.500 0 0 1 3 0V12m0-1.500v-2a1.500 1.500 0 0 1 3 0V12m0-1a1.500 1.500 0 0 1 3 0v4.500A5.500 5.500 0 0 1 11.500 21h-1A5.500 5.500 0 0 1 6 17.500L4.500 14a1.500 1.500 0 0 1 2.500-1.500L8 14"/></svg>Attrape la canette</span>
+        </div>
+      </div>
+
+      <!-- Gamme -->
+      <div class="r-ui" data-r-ui>
+        <h2 class="range__title">Onze saveurs.<br><span>Un anneau.</span></h2>
+        <div class="range__card" data-range-card>
+          <p class="mono range__tag"><span data-range-index>01</span> / 11 <b data-range-tag class="badge"></b></p>
+          <h3 data-range-name>Orvia Original</h3>
+          <p data-range-desc></p>
+        </div>
+        <p class="range__hint mono"><span>Glisse</span><i></i><span>Survole</span><i></i><span>Clique</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════ MANIFESTE ═══════════════ -->
+  <section class="manifesto" id="manifesto">
+    <p class="manifesto__label mono">Le manifeste</p>
+    <p class="manifesto__text" data-reveal-words>Orvia est une marque imaginaire : un anneau, onze couleurs, une canette qui tient dans la main. Bien fraîche, toujours. Le reste, c’est toi qui le décides.</p>
+
+    <ul class="stats">
+      <li><b data-count="250">0</b><span>ml<br>la canette</span></li>
+      <li><b data-count="11">0</b><span>saveurs<br>dans la gamme</span></li>
+      <li><b data-count="4">0</b><span>°C<br>bien fraîche</span></li>
+      <li><b data-count="1">0</b><span>anneau<br>par saveur</span></li>
+    </ul>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" data-marquee>
+      <span>Orvia · un anneau, onze saveurs</span><span class="o">Orvia · un anneau, onze saveurs</span><span>Orvia · un anneau, onze saveurs</span><span class="o">Orvia · un anneau, onze saveurs</span>
+      <span>Orvia · un anneau, onze saveurs</span><span class="o">Orvia · un anneau, onze saveurs</span><span>Orvia · un anneau, onze saveurs</span><span class="o">Orvia · un anneau, onze saveurs</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════ FAQ ═══════════════ -->
+  <section class="faq" id="faq">
+    <h2 class="faq__title" data-split-title>Foire aux<br>questions</h2>
+    <div class="faq__list" data-faq></div>
+  </section>
+
+  <!-- ═══════════════ JOIN + FOOTER ═══════════════ -->
+  <section class="join" id="join">
+    <p class="mono join__label">Reste dans l’orbite</p>
+    <h2 class="join__title" data-split-title>Entre<br>en orbite.</h2>
+    <form class="join__form" novalidate>
+      <label class="sr-only" for="mail">Ton adresse mail</label>
+      <input id="mail" type="email" placeholder="Ton adresse mail" autocomplete="email" data-cursor="text">
+      <button type="submit" class="pill pill--light" data-magnetic data-cursor="hover">S’inscrire</button>
+    </form>
+    <p class="join__ok mono" aria-live="polite"></p>
+  </section>
+
+  <footer class="footer">
+    <nav class="footer__links mono" aria-label="Liens">
+      <a href="../../index.html" data-cursor="hover">← Nova Studio</a>
+      <a href="#join" data-scroll-to="#join" data-cursor="hover">Contact</a>
+    </nav>
+    <p class="mono">Concept de site — projet de démonstration réalisé par Nova Studio. Orvia est une marque imaginaire : nom, logo, canettes et textes sont originaux.</p>
+    <p class="mono">Orvia n’existe pas en magasin : aucun produit n’est vendu sur ce site.</p>
+  </footer>
+
+  <!-- ═══════════════ FINALE : la canette s'ouvre (épinglé, tout en bas) ═══════════════ -->
+  <section class="finale" id="finale">
+    <div class="finale__pin">
+      <div class="finale__ui">
+        <p class="finale__kicker mono">★ La signature · Orvia Original</p>
+        <h2 class="finale__t finale__t--1" data-fin-1>Ouvre-la.</h2>
+        <h2 class="finale__t finale__t--2" data-fin-2>Bien fraîche,<br>toujours.</h2>
+        <p class="finale__hint mono" data-fin-3><span>Essuie l’écran avec la souris</span><i></i><span>Remonte : tout rentre dans la canette</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- ═══════════════ Aperçu / confirmation du mail de remerciement ═══════════════ -->
+<div class="mail" role="dialog" aria-modal="true" aria-labelledby="mail-title" aria-hidden="true">
+  <div class="mail__card">
+    <p class="mono mail__note" data-mail-note></p>
+    <div class="mail__head">
+      <p><span class="mono">De</span> Nova Studio · projet démo</p>
+      <p><span class="mono">À</span> <b data-mail-to></b></p>
+      <p id="mail-title"><span class="mono">Objet</span> <b data-mail-subject></b></p>
+    </div>
+    <div class="mail__body" data-mail-body></div>
+    <button type="button" class="pill" data-mail-close data-cursor="hover">Fermer</button>
+  </div>
+</div>
+
+<noscript><p style="position:fixed;inset:0;display:grid;place-items:center;background:#050506;color:#fff;font:16px sans-serif">Cette expérience nécessite JavaScript.</p></noscript>
+
+<script src="vendor/gsap/gsap.min.js"></script>
+<script src="vendor/gsap/ScrollTrigger.min.js"></script>
+<script src="vendor/gsap/SplitText.min.js"></script>
+<script src="vendor/lenis/lenis.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

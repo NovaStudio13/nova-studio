@@ -1,0 +1,10 @@
+.DS_Store
+node_modules/
+dist/
+.netlify/
+# Documents de travail : restent sur le Mac, jamais sur GitHub
+Plan N.S..md
+Design V1.pdf
+PDP .png
+V2 Logo.png
+Acien logos/

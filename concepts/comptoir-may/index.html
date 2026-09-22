@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mây · Comptoir vietnamien à emporter (concept Nova Studio)</title>
+<meta name="description" content="Mây, comptoir vietnamien fictif : concept de site de restaurant à emporter réalisé par Nova Studio. Carte interactive, ticket de commande, commande en ligne (démonstration).">
+<meta name="theme-color" content="#C8322B">
+<meta name="robots" content="noindex, follow">
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Réseaux sociaux : passer og:image / og:url en URL absolue (https://…) au déploiement -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Mây · concept Nova Studio">
+<meta property="og:title" content="Mây · Comptoir vietnamien à emporter (concept)">
+<meta property="og:description" content="Nems, phở, bo-bun… préparés maison et cuisinés devant vous. Restaurant fictif, concept réalisé par Nova Studio.">
+<meta property="og:image" content="og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Mây, comptoir vietnamien à emporter (restaurant fictif)">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Mây",
+  "servesCuisine": "Vietnamienne",
+  "priceRange": "10–20 €",
+  "telephone": "+33465712026",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Route Nationale 7",
+    "postalCode": "26000",
+    "addressLocality": "Valence",
+    "addressCountry": "FR"
+  },
+  "takeaway": true
+}
+</script>
+</head>
+<body>
+<div class="road-progress" aria-hidden="true"><span id="progress"></span></div>
+
+<header class="top">
+  <a class="brand" href="#haut" aria-label="Mây, accueil">
+    <span class="borne" aria-hidden="true"><b>N</b>7</span>
+    <span class="brand-name">Mây</span>
+  </a>
+  <nav class="nav" aria-label="Sections">
+    <a href="#comptoir">Le comptoir</a>
+    <a href="#carte">La carte</a>
+    <a href="#avis">Les avis</a>
+    <a href="#venir">Venir</a>
+  </nav>
+  <span class="status" id="status" role="status"><i></i><span>…</span></span>
+  <a class="btn btn-primary btn-call" href="#carte">Commander</a>
+</header>
+
+<main id="haut">
+
+<!-- ───────────── HERO : la façade ───────────── -->
+<section class="hero">
+  <div class="hero-copy">
+    <p class="kicker">Spécialités vietnamiennes · Valence</p>
+    <h1>Ça saute <em>devant&nbsp;vous.</em></h1>
+    <p class="lede">Un comptoir sur la Nationale&nbsp;7, un wok qui ne refroidit jamais, et des bo-bún qui partent en dix minutes. Tout sort de la cuisine à la minute, sous vos yeux.</p>
+    <div class="cta">
+      <a class="btn btn-primary" href="#carte">Commander</a>
+      <a class="text-link" href="tel:+33465712026">ou appelez le 04 65 71 20 26</a>
+    </div>
+    <p class="preorder" id="preorder" hidden></p>
+    <ul class="facts">
+      <li><strong>4,8 ★</strong><span>126 avis</span></li>
+      <li><strong>Nems dès 1,20 €</strong><span>plats de 8 à 11 €</span></li>
+      <li><strong>Emporter</strong><span>ou plateaux traiteur</span></li>
+    </ul>
+  </div>
+
+  <div class="front" aria-hidden="true">
+    <div class="front-wall"></div>
+    <div class="front-sign">Mây</div>
+    <div class="awning"></div>
+    <div class="hatch">
+      <div class="hang h1"></div><div class="hang h2"></div><div class="hang h3"></div>
+      <svg class="wok" viewBox="0 0 300 200">
+        <g class="flames">
+          <path d="M90 200 q8-38 18 0 q6-26 16 0 q9-42 20 0 q10-30 20 0 q7-36 16 0 q6-22 14 0z" fill="#F2A93B"/>
+          <path d="M104 200 q5-24 12 0 q6-30 14 0 q7-26 14 0 q5-20 12 0z" fill="#FFE08A"/>
+        </g>
+        <path class="handle" d="M252 112 L294 92" stroke="#3a2a20" stroke-width="9" stroke-linecap="round"/>
+        <path d="M38 112 Q150 200 262 112 Z" fill="#1b1b1b"/>
+        <ellipse cx="150" cy="112" rx="112" ry="13" fill="#3c3c3c"/>
+        <ellipse cx="150" cy="112" rx="98" ry="8" fill="#161616"/>
+        <g class="heap"><circle cx="100" cy="112" r="5" fill="#4C9A5B"/><circle cx="114" cy="109" r="6" fill="#C8322B"/><circle cx="128" cy="111" r="5" fill="#F2A93B"/><circle cx="142" cy="108" r="6" fill="#F4ECDC"/><circle cx="156" cy="111" r="6" fill="#4C9A5B"/><circle cx="170" cy="108" r="5" fill="#C8322B"/><circle cx="184" cy="112" r="6" fill="#F2A93B"/><circle cx="198" cy="111" r="5" fill="#F4ECDC"/><circle cx="121" cy="114" r="5" fill="#F2A93B"/><circle cx="163" cy="114" r="5" fill="#F4ECDC"/><circle cx="191" cy="114" r="5" fill="#4C9A5B"/><circle cx="135" cy="113" r="5" fill="#C8322B"/></g>
+        <g class="toss"><circle class="t1" cx="128" cy="108" r="6" fill="#C8322B"/><circle class="t2" cx="142" cy="108" r="5" fill="#4C9A5B"/><circle class="t3" cx="156" cy="108" r="6" fill="#F4ECDC"/><circle class="t4" cx="170" cy="108" r="5" fill="#F2A93B"/><circle class="t5" cx="184" cy="108" r="6" fill="#4C9A5B"/></g>
+        <path d="M42 114 A108 12 0 0 0 258 114" fill="none" stroke="#555" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+        <g class="steam" fill="none" stroke="#F4ECDC" stroke-width="5" stroke-linecap="round" opacity=".55">
+          <path class="s1" d="M120 70 q-14 -18 0 -34 q14 -16 0 -32"/>
+          <path class="s2" d="M158 66 q-14 -18 0 -34 q14 -16 0 -32"/>
+          <path class="s3" d="M196 70 q-14 -18 0 -34 q14 -16 0 -32"/>
+        </g>
+      </svg>
+    </div>
+    <div class="ledge"><span class="bag"></span><span class="bag b2"></span></div>
+    <div class="road"><span>N 7 · Valence ⇄ Montélimar</span></div>
+  </div>
+</section>
+
+<!-- ───────────── LE COMPTOIR ───────────── -->
+<section class="counter" id="comptoir">
+  <div class="wrap">
+    <p class="kicker light">Le lieu</p>
+    <h2>Ici, tout se passe <em>au comptoir.</em></h2>
+    <p class="section-lede">Pas de décor pour faire semblant : une ouverture sur la route, une cuisine à vue, et la cuisine qui arrive dans votre sac. Pas de salle, pas de chichis : on préfère que vous emportiez.</p>
+
+    <ol class="steps">
+      <li>
+        <span class="num">1</span>
+        <h3>Vous vous arrêtez</h3>
+        <p>Sur la RN&nbsp;7, à la sortie de Valence. Stationnement facile, entrée accessible en fauteuil roulant. Beaucoup s'arrêtent une fois… et reviennent.</p>
+      </li>
+      <li>
+        <span class="num">2</span>
+        <h3>On cuisine devant vous</h3>
+        <p>Nems, bo-bún, poulet citronnelle : tout passe par le wok sous vos yeux. La fraîcheur, ici, se voit.</p>
+      </li>
+      <li>
+        <span class="num">3</span>
+        <h3>Vous repartez avec le sac</h3>
+        <p>À emporter, ou en plateaux traiteur pour vos soirées. Carte bancaire, sans contact et titres-restaurant acceptés.</p>
+      </li>
+    </ol>
+
+    <p class="stamp"><span>Tout sort du <b>wok</b>, à la <b>minute</b>, sous vos yeux !</span></p>
+  </div>
+</section>
+
+<!-- ───────────── LA CARTE : le ticket ───────────── -->
+<section class="menu" id="carte">
+  <div class="wrap">
+    <p class="kicker">La carte</p>
+    <h2>Composez votre <em>ticket.</em></h2>
+    <p class="section-lede">Touchez <b>+</b> pour ajouter un plat : votre ticket se remplit, prêt à être dicté au téléphone ou montré au comptoir.</p>
+
+    <div class="menu-grid">
+      <div class="menu-col" tabindex="0" role="region" aria-label="Carte du restaurant (défile dans le cadre)">
+        <nav class="chips" id="chips" aria-label="Catégories de la carte"></nav>
+        <div id="menu"></div>
+        <p class="fineprint">Carte et prix fictifs, pour la démonstration. Une grande tablée&nbsp;? Mây fait aussi des plateaux traiteur.</p>
+      </div>
+
+      <aside class="ticket-wrap" id="ticket">
+        <div class="ticket" aria-live="polite">
+          <div class="ticket-head">
+            <b>MÂY</b>
+            <span>Bon de commande</span>
+            <span id="ticket-no">N° 001</span>
+          </div>
+          <ul class="ticket-lines" id="ticket-lines"></ul>
+          <div class="ticket-empty" id="ticket-empty">Ticket vide.<br>Touchez un plat pour le faire sauter.
+            <button class="link-btn" id="reorder" type="button" hidden><span id="reorder-label">Refaire ma dernière commande</span></button>
+          </div>
+          <div class="ticket-total" id="ticket-total" hidden>
+            <span>Total estimé</span><b id="total-value">0,00 €</b>
+          </div>
+          <p class="ticket-foot" id="ticket-foot" hidden></p>
+          <div class="ticket-actions">
+            <button class="btn btn-primary" id="order-btn" type="button" disabled>Commander</button>
+            <a class="text-link" href="tel:+33465712026">ou appeler le comptoir</a>
+            <button class="link-btn" id="copy" type="button" disabled>Copier ma commande</button>
+            <button class="link-btn" id="clear" type="button" disabled>Vider le ticket</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ───────────── LES AVIS ───────────── -->
+<section class="reviews" id="avis">
+  <div class="wrap">
+    <p class="kicker light">Ce que disent les clients</p>
+    <h2>Ils <em>recommandent.</em></h2>
+
+    <div class="score">
+      <div class="score-big"><span>4,8</span><small>/ 5</small></div>
+      <div class="score-meta">
+        <p><b>126 avis</b> clients</p>
+        <ul class="dist" aria-label="Répartition des notes sur 126 avis">
+          <li><span>5 ★</span><i style="--w:82.5%"></i><b>104</b></li>
+          <li><span>4 ★</span><i style="--w:12.7%"></i><b>16</b></li>
+          <li><span>3 ★</span><i style="--w:3.2%"></i><b>4</b></li>
+          <li><span>2 ★</span><i style="--w:.8%"></i><b>1</b></li>
+          <li><span>1 ★</span><i style="--w:.8%"></i><b>1</b></li>
+        </ul>
+        <ul class="tags" aria-label="Mots les plus cités dans les avis">
+          <li>nems <i>14</i></li>
+          <li>frais <i>11</i></li>
+          <li>rapide <i>7</i></li>
+          <li>traiteur <i>3</i></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rail" role="list">
+      <article class="slip s1" role="listitem">
+        <header><span>Visité en août</span><span>il y a 2 semaines</span></header>
+        <p>«&nbsp;Pause déjeuner sur la route des vacances : nems croustillants, bo-bun généreux, prêt en dix minutes. On a refait le détour au retour&nbsp;»</p>
+        <footer><b>Julie M.</b><span>6 avis</span></footer>
+      </article>
+      <article class="slip s2 big" role="listitem">
+        <header><span>Visité en mai</span><span>il y a 3 mois</span></header>
+        <p>«&nbsp;On voit tout se préparer au wok, c'est presque un spectacle. Le phở est parfumé, les prix sont doux et l'accueil adorable. Notre adresse du vendredi soir&nbsp;»</p>
+        <footer><b>Karim B.</b><span>23 avis</span></footer>
+      </article>
+      <article class="slip s3" role="listitem">
+        <header><span>Visité en avril</span><span>il y a 5 mois</span></header>
+        <p>«&nbsp;Commandé pour un anniversaire : plateau de nems et de rouleaux impeccable, tout le monde a demandé l'adresse. Merci pour le service traiteur&nbsp;!&nbsp;»</p>
+        <footer><b>Sophie L.</b><span>41 avis</span></footer>
+      </article>
+    </div>
+
+    <p class="reviews-foot">
+      <small>Avis fictifs, rédigés pour la démonstration.</small>
+    </p>
+  </div>
+</section>
+
+<!-- ───────────── VENIR ───────────── -->
+<section class="visit" id="venir">
+  <div class="wrap visit-grid">
+    <div>
+      <p class="kicker">Nous trouver</p>
+      <h2>À Valence,<br><em>sur la Nationale&nbsp;7.</em></h2>
+      <address>
+        Route Nationale 7<br>
+        26000 Valence <small>(adresse fictive)</small>
+      </address>
+      <p class="phone"><a href="tel:+33465712026">04 65 71 20 26</a></p>
+      <div class="cta">
+        <a class="btn btn-ghost" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&destination=Valence+Drôme">Itinéraire ↗</a>
+        <a class="btn btn-ghost" href="tel:+33465712026">Appeler</a>
+      </div>
+
+      <h3 class="mini">Horaires</h3>
+      <table class="hours" id="hours">
+        <tbody></tbody>
+      </table>
+      <p class="fineprint">Horaires indicatifs : appelez avant de vous déplacer les jours fériés.</p>
+    </div>
+
+    <div>
+      <div class="map" id="map">
+        <button class="map-load" id="map-load" type="button">
+          <span>Afficher la carte</span>
+          <small>Charge Google Maps : Google peut déposer des cookies.</small>
+        </button>
+      </div>
+      <ul class="pills">
+        <li>Vente à emporter</li><li>Commande en ligne</li><li>Plateaux traiteur</li><li>Options végétariennes</li>
+        <li>Sans gluten sur demande</li><li>Cuisine à vue</li><li>Parking devant</li><li>Accès fauteuil roulant</li>
+        <li>CB · sans contact</li><li>Titres-restaurant</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span class="borne" aria-hidden="true"><b>N</b>7</span>
+    <p><b>Mây</b> · restaurant fictif · concept réalisé par <a href="../../index.html">Nova Studio</a></p>
+    <p class="foot-legal"><a href="cgu.html">Mentions légales &amp; CGU</a> · <a href="politique-de-confidentialite.html">Confidentialité</a></p>
+  </div>
+</footer>
+
+<!-- barre mobile -->
+<div class="dock" id="dock">
+  <a href="#ticket" id="dock-ticket">Mon ticket <b id="dock-count">0</b></a>
+  <a class="dock-call" href="tel:+33465712026">Appeler</a>
+</div>
+
+<!-- ───────────── COMMANDE ───────────── -->
+<dialog class="checkout" id="checkout" aria-labelledby="co-title">
+  <div class="co-inner">
+    <button class="co-close" type="button" data-close aria-label="Fermer">×</button>
+
+    <div id="co-form-view">
+      <p class="kicker">Étape finale</p>
+      <h2 id="co-title">Votre commande</h2>
+      <ul class="co-recap" id="co-recap"></ul>
+      <div class="co-suggest" id="co-suggest"></div>
+      <p class="co-total"><span>Total estimé</span><b id="co-total">0,00 €</b></p>
+
+      <form id="co-form" novalidate>
+        <div class="co-row">
+          <label>Prénom
+            <input name="name" required autocomplete="given-name" maxlength="40" aria-describedby="co-err">
+          </label>
+          <label>Téléphone
+            <input name="tel" type="tel" required autocomplete="tel" inputmode="tel" maxlength="20" placeholder="06 12 34 56 78" aria-describedby="co-err">
+          </label>
+        </div>
+        <label>Retrait au comptoir
+          <select name="slot" id="co-slot"></select>
+        </label>
+        <label>Une précision ? <small>(facultatif)</small>
+          <textarea name="note" rows="2" maxlength="200" placeholder="Allergie, sauce à part, sans coriandre…"></textarea>
+        </label>
+        <div class="hp" aria-hidden="true"><label>Ne pas remplir<input name="website" tabindex="-1" autocomplete="off"></label></div>
+        <label class="co-remember"><input type="checkbox" name="remember"> Mémoriser mon prénom, mon numéro et ma commande sur cet appareil</label>
+        <p class="co-pay">Paiement au retrait, au comptoir : carte, sans contact ou titres-restaurant.</p>
+        <p class="co-err" id="co-err" role="alert"></p>
+        <button class="btn btn-primary co-submit" id="co-submit" type="submit">Envoyer ma commande</button>
+      </form>
+    </div>
+
+    <div id="co-done-view" hidden>
+      <svg class="co-wok" viewBox="0 0 300 150" aria-hidden="true">
+        <g class="flames"><path d="M90 150 q8-30 18 0 q6-20 16 0 q9-34 20 0 q10-24 20 0 q7-28 16 0 q6-18 14 0z" fill="#F2A93B"/></g>
+        <path class="handle" d="M252 94 L294 74" stroke="#3a2a20" stroke-width="9" stroke-linecap="round"/>
+        <path d="M38 92 Q150 168 262 92 Z" fill="#1b1b1b"/>
+        <ellipse cx="150" cy="92" rx="112" ry="12" fill="#3c3c3c"/>
+        <ellipse cx="150" cy="92" rx="98" ry="7" fill="#161616"/>
+        <g class="heap"><circle cx="100" cy="92" r="5" fill="#4C9A5B"/><circle cx="114" cy="89" r="6" fill="#C8322B"/><circle cx="128" cy="91" r="5" fill="#F2A93B"/><circle cx="142" cy="88" r="6" fill="#F4ECDC"/><circle cx="156" cy="91" r="6" fill="#4C9A5B"/><circle cx="170" cy="88" r="5" fill="#C8322B"/><circle cx="184" cy="92" r="6" fill="#F2A93B"/><circle cx="198" cy="91" r="5" fill="#F4ECDC"/><circle cx="121" cy="94" r="5" fill="#F2A93B"/><circle cx="163" cy="94" r="5" fill="#F4ECDC"/><circle cx="191" cy="94" r="5" fill="#4C9A5B"/><circle cx="135" cy="93" r="5" fill="#C8322B"/></g>
+        <g class="toss"><circle class="t1" cx="128" cy="88" r="6" fill="#C8322B"/><circle class="t2" cx="142" cy="88" r="5" fill="#4C9A5B"/><circle class="t3" cx="156" cy="88" r="6" fill="#F4ECDC"/><circle class="t4" cx="170" cy="88" r="5" fill="#F2A93B"/><circle class="t5" cx="184" cy="88" r="6" fill="#4C9A5B"/></g>
+        <path d="M42 94 A108 11 0 0 0 258 94" fill="none" stroke="#555" stroke-width="4" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      <p class="kicker" id="co-num">Commande N° 000</p>
+      <h2>Merci <span id="co-name"></span>&nbsp;!<br><em id="co-headline">Nous préparons votre commande.</em></h2>
+      <p class="co-when" id="co-when"></p>
+
+      <ol class="track" id="track" aria-label="Avancement de la commande">
+        <li class="done"><i></i><span>Commande reçue</span></li>
+        <li id="track-2"><i></i><span>En préparation</span></li>
+        <li><i></i><span>Prête au comptoir</span></li>
+      </ol>
+      <button class="btn btn-ghost co-park" id="co-park" type="button">Je suis garé devant</button>
+      <p class="co-parked" id="co-park-done" role="status" hidden>C'est noté : on prépare la remise au comptoir.</p>
+      <p class="co-help">Une question ? Appelez le <a href="tel:+33465712026">04 65 71 20 26</a>.</p>
+      <div class="cta">
+        <button class="btn btn-primary" type="button" data-close>Terminer</button>
+      </div>
+    </div>
+
+    <p class="co-demo" id="co-demo">Mode démonstration : cette commande n'est pas transmise au restaurant. Ouvrez <a href="comptoir.html" target="_blank" rel="noopener">l'écran du comptoir</a> dans un autre onglet pour jouer le rôle du restaurant.</p>
+  </div>
+</dialog>
+
+<script src="orders.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
