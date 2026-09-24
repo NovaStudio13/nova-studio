@@ -14,11 +14,19 @@
 ## Session cloud : toujours livrer une copie
 
 L'utilisateur travaille avec des dossiers sur son Mac et n'utilise pas GitHub. Une session cloud ne peut pas
-écrire sur son Mac, donc à chaque livraison (et avant de terminer la session) :
+écrire directement sur son Mac, mais ses dossiers « Projet S.I. » et « Mon site » sont synchronisés avec son
+Google Drive (appli Google Drive pour ordinateur) : ce qui est écrit dans ces dossiers via le connecteur Drive
+revient sur le Mac.
 
-1. Compresser en `.zip` tout ce qui a été créé ou modifié, rangé comme dans ses dossiers
-   (ex. `salon-nacre/…` pour un concept de Projet S.I., `nova-studio/…` pour le site).
-2. L'envoyer dans la conversation (fichier joint), avec une phrase disant où le ranger sur le Mac.
-3. Déposer aussi le même `.zip` dans son Google Drive, dossier `Claude – copies` (accord donné le 24/09/2026).
-   Si l'appli Google Drive est installée sur le Mac, le fichier y apparaît sans rien faire.
+- Dossier Drive « Projet S.I. » : id `1DXmSvQ2GBS4CHNzY2HFgdnCc-5fiYqOJ` (contient son propre `CLAUDE.md`, à lire
+  avant de travailler sur un projet : un sous-dossier par projet, sites qui s'ouvrent en double-cliquant `index.html`).
+- Dossier Drive « Claude – copies » : id `1UzOGzBXULpGNYLv6HWbkAMiimLPsd6bi`.
+
+À chaque livraison (et avant de terminer la session) :
+
+1. Travailler dans l'espace temporaire de la session, tester (captures, parcours), puis déposer chaque fichier
+   directement dans le bon sous-dossier de Projet S.I. sur Drive (`create_file` avec `disableConversionToGoogleType`),
+   et vérifier que la taille renvoyée par Drive est égale à celle du fichier local.
+2. Envoyer aussi un `.zip` de ce qui a été créé ou modifié dans la conversation (fichier joint).
+3. Si Projet S.I. n'est pas accessible via Drive : déposer le `.zip` dans « Claude – copies » et dire où le ranger.
 4. Ne jamais supposer qu'il sait utiliser git : expliquer en termes de fichiers et de dossiers.
