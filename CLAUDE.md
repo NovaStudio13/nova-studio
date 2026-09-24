@@ -20,5 +20,5 @@ L'utilisateur travaille avec des dossiers sur son Mac et n'utilise pas GitHub. U
    (ex. `salon-nacre/…` pour un concept de Projet S.I., `nova-studio/…` pour le site).
 2. L'envoyer dans la conversation (fichier joint), avec une phrase disant où le ranger sur le Mac.
 3. Déposer aussi le même `.zip` dans son Google Drive, dossier `Claude – copies` (accord donné le 24/09/2026).
-   Il a l'appli Google Drive sur son Mac : le fichier y apparaît sans rien faire.
+   Si l'appli Google Drive est installée sur le Mac, le fichier y apparaît sans rien faire.
 4. Ne jamais supposer qu'il sait utiliser git : expliquer en termes de fichiers et de dossiers.
