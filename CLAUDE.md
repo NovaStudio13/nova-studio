@@ -10,3 +10,14 @@
   Ne jamais créer ni modifier directement un concept dans `concepts/` : la source est dans Projet S.I.
 - Si Projet S.I. n'est pas accessible dans la session (session cloud), le dire et demander où travailler
   avant de créer quoi que ce soit.
+
+## Session cloud : toujours livrer une copie
+
+L'utilisateur travaille avec des dossiers sur son Mac et n'utilise pas GitHub. Une session cloud ne peut pas
+écrire sur son Mac, donc à chaque livraison (et avant de terminer la session) :
+
+1. Compresser en `.zip` tout ce qui a été créé ou modifié, rangé comme dans ses dossiers
+   (ex. `salon-nacre/…` pour un concept de Projet S.I., `nova-studio/…` pour le site).
+2. L'envoyer dans la conversation (fichier joint), avec une phrase disant où le ranger sur le Mac.
+3. S'il l'a accepté, déposer aussi le même `.zip` dans son Google Drive, dossier `Claude – copies`.
+4. Ne jamais supposer qu'il sait utiliser git : expliquer en termes de fichiers et de dossiers.
