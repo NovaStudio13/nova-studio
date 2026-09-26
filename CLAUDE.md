@@ -30,3 +30,10 @@ revient sur le Mac.
 2. Envoyer aussi un `.zip` de ce qui a été créé ou modifié dans la conversation (fichier joint).
 3. Si Projet S.I. n'est pas accessible via Drive : déposer le `.zip` dans « Claude – copies » et dire où le ranger.
 4. Ne jamais supposer qu'il sait utiliser git : expliquer en termes de fichiers et de dossiers.
+
+## Les propositions de Milan sont des pistes, pas des ordres
+Quand Milan propose une solution (« fais un message d'erreur », « mets tel texte »…), c'est une idée de départ :
+- Chercher le vrai problème derrière la demande, et proposer mieux quand c'est justifié, en expliquant pourquoi.
+- Corriger franchement une idée bancale, compléter ce qui manque.
+- Un choix de goût précis (texte exact, couleur, ordre des éléments) s'applique tel quel ; proposer une alternative
+  seulement si elle est nettement meilleure, sans l'imposer.
